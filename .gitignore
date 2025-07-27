@@ -1,0 +1,17 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/
+mvnw**
+.gitattributes
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+## OS X
+.DS_Store
