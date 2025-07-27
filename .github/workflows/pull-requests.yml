@@ -1,20 +1,17 @@
-name: Maven Build with GraalVM JDK 21
+# Build Pull-Request to key Branches
+name: Pull Request CI with maven.
 
 on:
-  push:
-    branches:
-      - '**'
   pull_request:
     branches:
-      - master
       - develop
+      - master
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Code
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Set up GraalVM JDK 21
@@ -22,6 +19,19 @@ jobs:
         with:
           java-version: 21
           distribution: 'graalvm'
+
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
+        with:
+          access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Free disk space
+        run: |
+          sudo apt clean
+          docker rmi $(docker image ls -aq)
+          docker system prune -af
+          echo "Available space"
+          df -h
 
       - name: Cache Maven packages
         uses: actions/cache@v4
