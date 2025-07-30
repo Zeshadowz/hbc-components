@@ -33,6 +33,16 @@ jobs:
           echo "Available space"
           df -h
 
+      - name: Print Github infos
+        run: |
+          echo "Github event name ${{ github.event_name }}"
+          echo "Github Run ID ${{ github.run_id }}"
+          echo "Output Run Number ${{ github.run_number }}"
+          echo "Output Run Attempt ${{ github.run_attempt }}"
+          echo "Output Base REF ${{ github.base_ref }}"
+          echo "Output Job ${{ github.job }}"
+          echo "Output Git REF ${{ github.ref_name }} / ${{ github.ref_type }}"
+
       - name: Cache Maven packages
         uses: actions/cache@v4
         with:

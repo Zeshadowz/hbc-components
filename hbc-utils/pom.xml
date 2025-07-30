@@ -5,19 +5,27 @@
     <parent>
         <groupId>com.luberis</groupId>
         <artifactId>hbc-components</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>${revision}</version>
         <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
 
     <artifactId>hbc-utils</artifactId>
     <name>hbc-utility</name>
-    <description>hbc-utility</description>
 
     <properties>
         <ruleset.basedir>..</ruleset.basedir>
     </properties>
 
     <dependencies>
-
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 </project>
